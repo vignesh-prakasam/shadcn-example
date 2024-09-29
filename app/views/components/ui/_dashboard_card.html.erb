@@ -1,0 +1,87 @@
+<div class="<%= tw("rounded-lg border bg-card text-card-foreground shadow-md w-[350px] mb-5 ", options[:class]) %>">
+  <% if title || subtitle %>
+  <div class="flex flex-col space-y-1.5 p-6">
+    <% if title %>
+    <div class="flex items-center justify-between">
+      <h3 class="text-sm font-semibold leading-none tracking-tight"><%= title %></h3>
+      <!-- Inline SVG Icon -->
+      <% if options[:icon] == :dollar %>
+              <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-4 w-4 ml-auto">
+          <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7H14.5a3.5 3.5 0 0 1 0 7H6" />
+        </svg>
+      <% elsif options[:icon] == :users %>  
+                <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-4 w-4 ml-auto">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+       <% elsif options[:icon] == :cc %>  
+            <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-4 w-4 ml-auto">
+          <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+          <line x1="1" y1="10" x2="23" y2="10" />
+        </svg>
+       <% elsif options[:icon] == :calendar %>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-4 w-4 ml-auto">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+          <line x1="16" y1="2" x2="16" y2="6" />
+          <line x1="8" y1="2" x2="8" y2="6" />
+          <line x1="3" y1="10" x2="21" y2="10" />
+        </svg>
+      <% end %>
+    </div>
+    <% end %>
+    <% if subtitle %>
+    <p class="text-2xl font-bold pt-1.5"><%= subtitle %></p>
+    <% end %>
+  </div>
+  <% end %>
+  <% if !block && !title %>
+    <%= content_tag( :div, class: "p-6" ){ body } %>
+  <% elsif !block %>
+    <%= content_tag( :div, class: "px-6" ){ body } %>
+  <% else %>
+    <%= body %>
+  <% end %>
+  <% if footer %><footer class="mx-6 mb-4 text-muted-foreground text-sm"><%= footer %></footer><% end %>
+</div>

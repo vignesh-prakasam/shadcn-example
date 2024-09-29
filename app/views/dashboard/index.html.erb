@@ -1,0 +1,16 @@
+<div class="w-full p-4">
+<%= render_card title: "Dashboard", class: "w-full p-4 mb-5" do %>
+  <div class="flex flex-wrap space-x-4 space-y-4">
+    <%= render_dashboard_card title: "Total revenue", subtitle: "$45,356.89", footer: "+20% from last month", icon: :dollar, class: "flex-1 min-w-[250px] w-full sm:w-auto" %>
+    <%= render_dashboard_card title: "Signups", subtitle: "645", footer: "+52.1% from last month", icon: :users, class: "flex-1 min-w-[250px] w-full sm:w-auto" %>
+    <%= render_dashboard_card title: "Sales", subtitle: "12,234", footer: "+19% from last month", icon: :cc, class: "flex-1 min-w-[250px] w-full sm:w-auto" %>
+    <%= render_dashboard_card title: "Subscriptions", subtitle: "52", footer: "+22.5% from last month", icon: :calendar, class: "flex-1 min-w-[250px] w-full sm:w-auto" %>
+  </div>
+<% end %>
+
+<%= render_card title: "Recent posts", class: "w-full p-4 mt-5" do %>
+  <%= render "posts/index" %>
+<% end %>
+
+
+</div>

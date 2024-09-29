@@ -1,0 +1,35 @@
+<%= turbo_frame_tag "posts" do %>
+  <turbo-stream action="replace" target="posts">
+    <template>
+        <%= render_table do %>
+                <%= table_head do %>
+                    <%= table_header "", class: "w-1" %>
+                    <%= table_header class: "" do %>
+                    Title
+                    <% end %>
+                    <%= table_header "Content" %>
+                <% end %>
+                <%= table_body do %>
+                    <% @posts.each.with_index do |post, i| %>
+                    <%= table_row do %>
+                        <%= table_column do %>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                        </svg>
+                        <% end %>
+                        <%= table_column do %>
+                        <%= post.title %>
+                        <% end %>
+                        <%= table_column post.content %>
+                    <% end %>
+                    <% end %>
+                <% end %>
+        <% end %>
+    </template>    
+  </turbo-stream>
+<% end %>
+
+
